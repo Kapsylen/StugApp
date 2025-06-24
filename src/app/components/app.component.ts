@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HeaderComponent} from './header/header.component';
 import {MainComponent} from './main/main.component';
 import {FooterComponent} from './footer/footer.component';
+import {Utlagg} from './model/utlagg';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,10 @@ import {FooterComponent} from './footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected title = 'StugApp';
+
+  utlagg: Utlagg[] = [];
+
+  receiveUtlagg($event: Utlagg[]) {
+    this.utlagg = $event;
+  }
 }
