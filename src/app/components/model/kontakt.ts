@@ -1,18 +1,11 @@
 export interface Kontakt {
   id: number;
   name: string;
-  email: string;
-  phone: string;
   company: string;
-  address: {
-    street: string;
-    city: string;
-    postalCode: string;
-    country: string;
-  };
-  vatNumber: string;
-  notes: string;
-  isActive: string;
-  createdAt: string;
-  updatedAt: string;
+  category: string;  // Instead of 'trade' to make it more generic
+  phone: string;
+  email: string;
+  address: string;
+  notes: string;    // Will include certifications and other details here
+  status: string;   // Active/Inactive status
 }

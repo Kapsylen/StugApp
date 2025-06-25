@@ -10,9 +10,9 @@ import {DUMMY_ARENDEN} from '../../../../assets/arenden_data';
 })
 export class ArendenButton {
 
-  @Output() fakturorEvent = new EventEmitter<Arende[]>();
+  @Output() arendenEvent = new EventEmitter<Arende[]>();
 
   sendArenden() {
-    this.fakturorEvent.emit(DUMMY_ARENDEN);
+    this.arendenEvent.emit(DUMMY_ARENDEN);
   }
 }

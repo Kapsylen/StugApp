@@ -8,6 +8,7 @@ import {Faktura} from "./model/faktura";
 import {KontakterButton} from "./main.component/header.component/kontakter-button/kontakter-button";
 import {Kontakt} from "./model/kontakt";
 import {Arende} from "./model/arenden";
+import {ArendenButton} from './main.component/header.component/arenden-button/arenden-button';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import {Arende} from "./model/arenden";
     FooterComponent,
     UtlaggButton,
     FakturorButton,
-    KontakterButton
+    KontakterButton,
+    ArendenButton
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -51,7 +53,7 @@ export class AppComponent {
   }
 
   private clearArrays(): void {
-    if (this.utlagg.length > 0 || this.fakturor.length > 0) {
+    if (this.utlagg.length > 0 || this.fakturor.length > 0 || this.kontakter.length > 0 || this.arenden.length > 0) {
       this.utlagg = [];
       this.fakturor = [];
       this.kontakter = [];
