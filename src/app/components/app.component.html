@@ -1,6 +1,7 @@
 <app-header></app-header>
 <app-utlagg-button (utlaggEvent)="receiveUtlagg($event)"/>
 <app-fakturor-button (fakturorEvent)="receiveFakturor($event)"/>
+<app-kontakter-button (kontakterEvent)="receiveKontakter($event)"/>
 @for (u of utlagg; track u.id) {
     <ul class="no-bullets">
         <li>{{ u.title }}</li>
@@ -28,7 +29,67 @@
         </ul>
         <li>{{f.totalAmount}}</li>
         <li>{{f.status}}</li>
+        <br>
     </ul>
 }
+
+@for (k of kontakter; track k.id) {
+    <ul class="no-bullets">
+        <li>{{ k.name }}</li>
+        <li>{{ k.email }}</li>
+        <li>{{ k.phone }}</li>
+        <li>{{ k.address.street }}</li>
+        <li>{{ k.address.city }}</li>
+        <li>{{ k.address.postalCode }}</li>
+        <li>{{ k.address.country }}</li>
+        <li>{{k.vatNumber}}</li>
+        <li>{{k.notes}}</li>
+        <li>{{k.isActive}}</li>
+        <li>{{k.createdAt}}</li>
+        <li>{{k.updatedAt}}</li>
+        <br>
+    </ul>
+}
+
+@for (a of arenden; track a.id) {
+    <ul class="no-bullets">
+        <li>{{ a.title }}</li>
+        <li>{{ a.description }}</li>
+        <li>{{ a.type }}</li>
+        <li>{{ a.priority }}</li>
+        <li>{{ a.status }}</li>
+        <li>{{ a.reportedBy }}</li>
+        <li>{{ a.assignedTo }}</li>
+        <li>{{ a.location }}</li>
+        <li>{{ a.estimatedCost }}</li>
+        <li>{{ a.actualCost }}</li>
+        <li>{{ a.startTime }}</li>
+        <li>{{ a.resolvedTime }}</li>
+        <li>{{ a.resolution }}</li>
+        <li>{{ a.requiresContractor }}</li>
+        <li>{{ a.contractorInfo }}</li>
+        <ul>
+            @for(u of a.updates; track u.id) {
+                <ul class="no-bullets">
+                    <li>{{ u.timestamp }}</li>
+                    <li>{{ u.message }}</li>
+                    <li>{{ u.updatedBy }}</li>
+                    <li>{{ u.status }}</li>
+                </ul>
+            }
+        </ul>
+        <ul>
+            @for(t of a.tags; track t){
+                <ul class="no-bullets">
+                    <li>{{ t }}</li>
+                </ul>
+            }
+        </ul>
+        <li>{{ a.createdAt }}</li>
+        <li>{{ a.updatedAt }}</li>
+        <br>
+    </ul>
+}
+
 
 <app-footer></app-footer>
