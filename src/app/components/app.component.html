@@ -1,3 +1,34 @@
 <app-header></app-header>
-<app-main></app-main>
+<app-utlagg-button (utlaggEvent)="receiveUtlagg($event)"/>
+<app-fakturor-button (fakturorEvent)="receiveFakturor($event)"/>
+@for (u of utlagg; track u.id) {
+    <ul class="no-bullets">
+        <li>{{ u.title }}</li>
+        <li>{{ u.description }}</li>
+        <li>{{ u.price }}</li>
+        <li>{{ u.date }}</li>
+    <br>
+    </ul>
+ }
+@for (f of fakturor; track f.id) {
+    <ul class="no-bullets">
+        <li>{{ f.invoiceNumber }}</li>
+        <li>{{ f.clientName }}</li>
+        <li>{{ f.issueDate }}</li>
+        <li>{{ f.dueDate }}</li>
+        <ul>
+            @for (item of f.items; track item.id) {
+                <ul class="no-bullets">
+                    <li>{{ item.description }}</li>
+                    <li>{{ item.price }}</li>
+                    <li>{{ item.quantity }}</li>
+                    <li>{{ item.total }}</li>
+                </ul>
+            }
+        </ul>
+        <li>{{f.totalAmount}}</li>
+        <li>{{f.status}}</li>
+    </ul>
+}
+
 <app-footer></app-footer>

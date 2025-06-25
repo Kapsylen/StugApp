@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {DUMMY_UTLAGG} from './dummy-utlagg';
-import {Utlagg} from '../../model/utlagg';
+import {Utlagg} from '../../../model/utlagg';
+import {DUMMY_UTLAGG} from '../../../../assets/utlagg_data';
 
 @Component({
   selector: 'app-utlagg-button',
